@@ -45,5 +45,6 @@
   <remove-project name="device/linaro/poplar" />
   <remove-project name="device/sample" />
 
-  <!-- Hardware repos -->
+  <!-- Framework repos -->
+  <remove-project name="platform/frameworks/base" />
 </manifest>

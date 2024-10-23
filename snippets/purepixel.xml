@@ -16,7 +16,7 @@
   <!-- External repos -->
   
   <!-- Framework repos -->
-  
+  <project path="frameworks/base" name="frameworks_base" remote="purepixel" />  
   <!-- Hardware repos -->
   
   <!-- Packages repos -->
