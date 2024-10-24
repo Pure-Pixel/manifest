@@ -43,9 +43,11 @@
   <remove-project name="device/linaro/hikey" />
   <remove-project name="device/linaro/poplar-kernel" />
   <remove-project name="device/linaro/poplar" />
-  <remove-project name="device/sample" />
 
-  <!-- Framework repos -->
+  <!-- Forked Repos -->
   <remove-project name="platform/frameworks/base" />
   <remove-project name="platform/build" />
+  <remove-project name="device/google/zumapro" />
+  <remove-project name="device/google/caimito" />
+  <remove-project name="device/google/gs-common" />      
 </manifest>

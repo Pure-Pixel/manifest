@@ -12,6 +12,9 @@
   <!-- General repos -->
   <project path="manifests" name="manifest" remote="purepixel" revision="15" />
   <project path="build/make" name="build" remote="purepixel" revision="15" />  
+  <project path="device/google/zumapro" name="device_google_zumapro" remote="purepixel" revision="15" />
+  <project path="device/google/caimito" name="device_google_caimito" remote="purepixel" revision="15" />
+  <project path="device/google/gs-common" name="device_google_gs-common" remote="purepixel" revision="15" />      
   <project path="vendor/google_devices/komodo" name="google_devices-komodo" remote="hurtsdonuts" />
   <!-- External repos -->
   
