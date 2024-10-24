@@ -8,7 +8,7 @@ set these alias' in .bashrc bc why type shit over and over?
 alias sync='repo sync --force-sync --no-clone-bundle --current-branch --no-tags -j$(nproc --all)'
 
 
-alias startkomodo='source build/envsetup.sh && lunch komodo-ap3a-userdebug && m'
+alias startkomodo='source build/envsetup.sh && lunch komodo-ap3a-userdebug && m && m updatepackage'
 
 sync it:
 
