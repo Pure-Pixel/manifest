@@ -2,17 +2,29 @@
 <manifest>
 
   <remote  name="aosp"
-           fetch=".."
+           fetch="https://android.googlesource.com"
            review="https://android-review.googlesource.com/" />
   <default revision="refs/tags/android-15.0.0_r2"
            remote="aosp"
            sync-j="4" />
 
+  <!-- Remotes -->
+  <remote name="purepixel"
+          fetch="https://github.com/Pure-Pixel/"
+          revision="15" />
+
+  <remote name="hurtsdonuts"
+          fetch="https://gitlab.com/hurtsdonuts/"
+          revision="15" />
+
+  <remote name="github" fetch="https://github.com/" />
+  <remote name="gitlab" fetch="https://gitlab.com/" />
+  
   <superproject name="platform/superproject" remote="aosp" revision="android-15.0.0_r2"/>
   <contactinfo bugurl="go/repo-bug" />
 
   <!-- BEGIN open-source projects -->
-  <project path="build/make" name="platform/build" groups="pdk,sysui-studio" >
+  <project path="build/make" name="build" remote="purepixel" >
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
     <linkfile src="core" dest="build/core" />
@@ -28,14 +40,14 @@
   <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" />
   <project path="build/pesto" name="platform/build/pesto" groups="pdk" />
   <project path="build/release" name="platform/build/release" groups="pdk,tradefed" />
-  <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" >
+  <project path="build/soong" name="build_soong" remote="purepixel" >
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
-  <project path="art" name="platform/art" groups="pdk" />
-  <project path="bionic" name="platform/bionic" groups="pdk" />
+  <project path="art" name="art" remote="purepixel" />
+  <project path="bionic" name="bionic" remote="purepixel" />
   <project path="bootable/deprecated-ota" name="platform/bootable/deprecated-ota" groups="pdk-cw" />
-  <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" />
+  <project path="bootable/recovery" name="bootable_recovery" remote="purepixel" />
   <project path="bootable/libbootloader" name="platform/bootable/libbootloader" groups="vts,pdk" />
   <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
   <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs,pdk-fs" />
@@ -986,7 +998,7 @@
   <project path="external/zucchini" name="platform/external/zucchini" groups="pdk" />
   <project path="external/zxing" name="platform/external/zxing" groups="pdk" />
   <project path="frameworks/av" name="platform/frameworks/av" groups="pdk" />
-  <project path="frameworks/base" name="platform/frameworks/base" groups="pdk-cw-fs,pdk-fs,sysui-studio" />
+  <project path="frameworks/base" name="frameworks_base" remote="purepixel" />  
   <project path="frameworks/compile/libbcc" name="platform/frameworks/compile/libbcc" groups="pdk" />
   <project path="frameworks/compile/mclinker" name="platform/frameworks/compile/mclinker" groups="pdk" />
   <project path="frameworks/compile/slang" name="platform/frameworks/compile/slang" groups="pdk" />
@@ -1468,5 +1480,63 @@
     <copyfile src="lk_inc.mk" dest="lk_inc.mk" />
   </project>
   <!-- END open-source projects -->
-
+  
+  <!-- Device repos -->
+  <remove-project name="device/amlogic/yukawa-kernel" />
+  <remove-project name="device/amlogic/yukawa" />
+  <remove-project name="device/google/akita-kernels/5.15" />
+  <remove-project name="device/google/akita-sepolicy" />
+  <remove-project name="device/google/akita" />
+  <remove-project name="device/google/barbet-sepolicy" />
+  <remove-project name="device/google/barbet" />
+  <remove-project name="device/google/bluejay-kernels/5.10" />
+  <remove-project name="device/google/bluejay-sepolicy" />
+  <remove-project name="device/google/bluejay" />
+  <remove-project name="device/google/coral-kernel" />
+  <remove-project name="device/google/coral-sepolicy" />
+  <remove-project name="device/google/coral" />
+  <remove-project name="device/google/felix-kernels/5.10" />
+  <remove-project name="device/google/felix-sepolicy" />
+  <remove-project name="device/google/felix" />
+  <remove-project name="device/google/lynx-kernels/5.10" />
+  <remove-project name="device/google/lynx-sepolicy" />
+  <remove-project name="device/google/lynx" />
+  <remove-project name="device/google/pantah-kernels/5.10" />
+  <remove-project name="device/google/pantah-sepolicy" />
+  <remove-project name="device/google/pantah" />
+  <remove-project name="device/google/raviole-kernels/5.10" />
+  <remove-project name="device/google/raviole" />
+  <remove-project name="device/google/redbull-kernel" />
+  <remove-project name="device/google/redbull-sepolicy" />
+  <remove-project name="device/google/redbull" />
+  <remove-project name="device/google/redfin-sepolicy" />
+  <remove-project name="device/google/redfin" />
+  <remove-project name="device/google/sunfish-kernel" />
+  <remove-project name="device/google/sunfish-sepolicy" />
+  <remove-project name="device/google/sunfish" />
+  <remove-project name="device/google/tangorpro-kernels/5.10" />
+  <remove-project name="device/google/tangorpro-sepolicy" />
+  <remove-project name="device/google/tangorpro" />
+  <remove-project name="device/google/trout" />
+  <remove-project name="device/linaro/dragonboard-kernel" />
+  <remove-project name="device/linaro/dragonboard" />
+  <remove-project name="device/linaro/hikey-kernel" />
+  <remove-project name="device/linaro/hikey" />
+  <remove-project name="device/linaro/poplar-kernel" />
+  <remove-project name="device/linaro/poplar" />
+  
+  <remove-project name="device/google/zumapro" />    
+  <project path="device/google/zumapro" name="device_google_zumapro" remote="purepixel" />
+  <remove-project name="device/google/caimito" />  
+  <project path="device/google/caimito" name="device_google_caimito" remote="purepixel" />
+  <remove-project name="device/google/gs-common" />  
+  <project path="device/google/gs-common" name="device_google_gs-common" remote="purepixel" />      
+  <project path="vendor/google_devices/komodo" name="google_devices-komodo" remote="hurtsdonuts" />
+  <project path="vendor/google/gms-common-proprietary" name="vendor_google_gms-common-proprietary" remote="hurtsdonuts" />
+  <project path="vendor/google/gms" name="vendor_google_gms" remote="hurtsdonuts" />
+  <project path="vendor/google/mainline_modules" name="vendor_google_mainline_modules" remote="purepixel" />  
+  <project path="vendor/google/overlays/ThemeIcons" name="vendor_google_overlays_ThemeIcons" remote="purepixel" />
+  <project path="vendor/google/pixel-additional" name="vendor_google_pixel-additional" remote="purepixel" />
+  <project path="vendor/google/interfaces" name="vendor_google_interfaces" remote="purepixel" />
+  <project path="vendor/google/dexopt_profiles" name="vendor_google_dexopt_profiles" remote="hurtsdonuts" />
 </manifest>
