@@ -11,7 +11,7 @@ This rom will only support newer generation pixels.
 
 sync it:
 
-repo init -u https://github.com/Pure-Pixel/manifest -b 15
+git lfs install && repo init -u https://github.com/Pure-Pixel/manifest -b 15 --git-lfs
 
 source build/envsetup.sh && lunch komodo-ap3a-userdebug && m && m updatepackage'
 
