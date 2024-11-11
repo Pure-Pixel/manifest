@@ -1527,6 +1527,8 @@
   
   <remove-project name="device/google/zumapro" />    
   <project path="device/google/zumapro" name="device_google_zumapro" remote="purepixel" />
+  <remove-project name="device/google/zumapro-sepolicy" />    
+  <project path="device/google/zumapro-sepolicy" name="device_google_zumapro-sepolicy" remote="purepixel" />  
   <remove-project name="device/google/caimito" />  
   <project path="device/google/caimito" name="device_google_caimito" remote="purepixel" />
   <remove-project name="device/google/gs-common" />  
